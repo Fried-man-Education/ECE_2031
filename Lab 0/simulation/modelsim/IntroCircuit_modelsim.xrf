@@ -1,0 +1,12 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/mrchargerlover/Documents/Programming Archive/ECE_2031/Lab 0/IntroCircuit.bdf
+source_file = 1, C:/Users/mrchargerlover/Documents/Programming Archive/ECE_2031/Lab 0/db/IntroCircuit.cbx.xml
+design_name = IntroCircuit
+instance = comp, \LEDR0~output\, LEDR0~output, IntroCircuit, 1
+instance = comp, \LEDR1~output\, LEDR1~output, IntroCircuit, 1
+instance = comp, \LEDR9~output\, LEDR9~output, IntroCircuit, 1
+instance = comp, \KEY0~input\, KEY0~input, IntroCircuit, 1
+instance = comp, \KEY1~input\, KEY1~input, IntroCircuit, 1
+instance = comp, \SW8~input\, SW8~input, IntroCircuit, 1
+instance = comp, \SW9~input\, SW9~input, IntroCircuit, 1
+instance = comp, \~QUARTUS_CREATED_GND~I\, ~QUARTUS_CREATED_GND~I, IntroCircuit, 1
