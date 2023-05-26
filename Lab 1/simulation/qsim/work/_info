@@ -1,0 +1,98 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/ECE_2031/Lab 1/simulation/qsim
+Ecabbagesorting
+Z1 w1685046054
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 CX9c^[CNfbzHb3XCH3hoa1
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx8 cyclonev 19 cyclonev_components 0 22 NZ_cKj>1HW_D7i1UeTO[31
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z8 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 6`GHcm:DR>=X_840X1FV;0
+R0
+Z9 8CabbageSorting.vho
+Z10 FCabbageSorting.vho
+l0
+L37
+VCF<<If1cij<^;^aTP4YN<1
+!s100 fjUBm<QzMa0CWK78N2_ik1
+Z11 OV;C;10.5b;63
+32
+Z12 !s110 1685046054
+!i10b 1
+Z13 !s108 1685046054.000000
+Z14 !s90 -work|work|CabbageSorting.vho|
+Z15 !s107 CabbageSorting.vho|
+!i113 1
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+DEx4 work 14 cabbagesorting 0 22 CF<<If1cij<^;^aTP4YN<1
+l89
+L51
+VM@HKPR:BERXKT;jkF[U3R0
+!s100 LY8hnkHaB:DGnMAgA5fVV3
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Ecabbagesorting_vhd_vec_tst
+Z18 w1685046050
+R6
+R7
+R0
+Z19 8ActivitySuggestions.vwf.vht
+Z20 FActivitySuggestions.vwf.vht
+l0
+L32
+V;C9WSoRzZ7I62@L5Fga7I1
+!s100 1Q9FlAF5RDaR8kJe?]]RS2
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|ActivitySuggestions.vwf.vht|
+Z22 !s107 ActivitySuggestions.vwf.vht|
+!i113 1
+R16
+R17
+Acabbagesorting_arch
+R6
+R7
+Z23 DEx4 work 26 cabbagesorting_vhd_vec_tst 0 22 ;C9WSoRzZ7I62@L5Fga7I1
+l59
+L34
+VfzY^fSN5Z=AS38LeUY=]D1
+!s100 3iZ[@;i?KF@bj`Q3dK7lX1
+R11
+32
+R12
+!i10b 1
+R13
+R21
+R22
+!i113 1
+R16
+R17

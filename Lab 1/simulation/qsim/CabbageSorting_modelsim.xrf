@@ -1,0 +1,15 @@
+vendor_name = ModelSim
+source_file = 1, E:/ECE_2031/Lab 1/CabbageSorting.bdf
+source_file = 1, E:/ECE_2031/Lab 1/db/CabbageSorting.cbx.xml
+design_name = CabbageSorting
+instance = comp, \Wash~output\, Wash~output, CabbageSorting, 1
+instance = comp, \Grocery~output\, Grocery~output, CabbageSorting, 1
+instance = comp, \Shred~output\, Shred~output, CabbageSorting, 1
+instance = comp, \Discard~output\, Discard~output, CabbageSorting, 1
+instance = comp, \Cold~input\, Cold~input, CabbageSorting, 1
+instance = comp, \Hot~input\, Hot~input, CabbageSorting, 1
+instance = comp, \Dirty~input\, Dirty~input, CabbageSorting, 1
+instance = comp, \Large~input\, Large~input, CabbageSorting, 1
+instance = comp, \Round~input\, Round~input, CabbageSorting, 1
+instance = comp, \inst4~0\, inst4~0, CabbageSorting, 1
+instance = comp, \inst6~0\, inst6~0, CabbageSorting, 1

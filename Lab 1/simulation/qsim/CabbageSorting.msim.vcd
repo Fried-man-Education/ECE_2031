@@ -1,0 +1,397 @@
+$comment
+	File created using the following command:
+		vcd file CabbageSorting.msim.vcd -direction
+$end
+$date
+	Thu May 25 16:20:55 2023
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module cabbagesorting_vhd_vec_tst $end
+$var wire 1 ! Cold $end
+$var wire 1 " Dirty $end
+$var wire 1 # Discard $end
+$var wire 1 $ Grocery $end
+$var wire 1 % Hot $end
+$var wire 1 & Large $end
+$var wire 1 ' Round $end
+$var wire 1 ( Shred $end
+$var wire 1 ) Wash $end
+
+$scope module i1 $end
+$var wire 1 * gnd $end
+$var wire 1 + vcc $end
+$var wire 1 , unknown $end
+$var wire 1 - devoe $end
+$var wire 1 . devclrn $end
+$var wire 1 / devpor $end
+$var wire 1 0 ww_devoe $end
+$var wire 1 1 ww_devclrn $end
+$var wire 1 2 ww_devpor $end
+$var wire 1 3 ww_Wash $end
+$var wire 1 4 ww_Cold $end
+$var wire 1 5 ww_Hot $end
+$var wire 1 6 ww_Dirty $end
+$var wire 1 7 ww_Grocery $end
+$var wire 1 8 ww_Large $end
+$var wire 1 9 ww_Round $end
+$var wire 1 : ww_Shred $end
+$var wire 1 ; ww_Discard $end
+$var wire 1 < \Wash~output_o\ $end
+$var wire 1 = \Grocery~output_o\ $end
+$var wire 1 > \Shred~output_o\ $end
+$var wire 1 ? \Discard~output_o\ $end
+$var wire 1 @ \Cold~input_o\ $end
+$var wire 1 A \Hot~input_o\ $end
+$var wire 1 B \Dirty~input_o\ $end
+$var wire 1 C \inst2~combout\ $end
+$var wire 1 D \Large~input_o\ $end
+$var wire 1 E \Round~input_o\ $end
+$var wire 1 F \inst4~0_combout\ $end
+$var wire 1 G \inst6~0_combout\ $end
+$var wire 1 H \inst~combout\ $end
+$var wire 1 I \ALT_INV_Round~input_o\ $end
+$var wire 1 J \ALT_INV_Large~input_o\ $end
+$var wire 1 K \ALT_INV_Dirty~input_o\ $end
+$var wire 1 L \ALT_INV_Hot~input_o\ $end
+$var wire 1 M \ALT_INV_Cold~input_o\ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+1(
+0)
+0*
+1+
+x,
+1-
+1.
+1/
+10
+11
+12
+03
+04
+05
+06
+07
+08
+09
+1:
+0;
+0<
+0=
+1>
+0?
+0@
+0A
+0B
+0C
+0D
+0E
+0F
+1G
+0H
+1I
+1J
+1K
+1L
+1M
+$end
+#100000
+1'
+19
+1E
+0I
+#200000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#300000
+1'
+19
+1E
+0I
+1F
+0G
+0>
+1=
+0:
+17
+0(
+1$
+#400000
+0'
+0&
+1"
+09
+08
+16
+1B
+0D
+0E
+1I
+1J
+0K
+1C
+0F
+0=
+1<
+07
+13
+0$
+1)
+#500000
+1'
+19
+1E
+0I
+#600000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#700000
+1'
+19
+1E
+0I
+#800000
+0'
+0&
+0"
+1!
+09
+08
+06
+14
+1@
+0B
+0D
+0E
+1I
+1J
+1K
+0M
+1H
+0C
+0<
+1?
+03
+1;
+0)
+1#
+#900000
+1'
+19
+1E
+0I
+#1000000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#1100000
+1'
+19
+1E
+0I
+#1200000
+0'
+0&
+1"
+09
+08
+16
+1B
+0D
+0E
+1I
+1J
+0K
+#1300000
+1'
+19
+1E
+0I
+#1400000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#1500000
+1'
+19
+1E
+0I
+#1600000
+0'
+0&
+0"
+0!
+1%
+09
+08
+06
+04
+15
+1A
+0@
+0B
+0D
+0E
+1I
+1J
+1K
+1M
+0L
+#1700000
+1'
+19
+1E
+0I
+#1800000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#1900000
+1'
+19
+1E
+0I
+#2000000
+0'
+0&
+1"
+09
+08
+16
+1B
+0D
+0E
+1I
+1J
+0K
+#2100000
+1'
+19
+1E
+0I
+#2200000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#2300000
+1'
+19
+1E
+0I
+#2400000
+0'
+0&
+0"
+1!
+09
+08
+06
+14
+1@
+0B
+0D
+0E
+1I
+1J
+1K
+0M
+#2500000
+1'
+19
+1E
+0I
+#2600000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#2700000
+1'
+19
+1E
+0I
+#2800000
+0'
+0&
+1"
+09
+08
+16
+1B
+0D
+0E
+1I
+1J
+0K
+#2900000
+1'
+19
+1E
+0I
+#3000000
+0'
+1&
+09
+18
+1D
+0E
+1I
+0J
+#3100000
+1'
+19
+1E
+0I
+#3200000
