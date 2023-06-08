@@ -24,25 +24,21 @@ begin
 	
 	-- Using a "selected signal assignment", aka "with/select"
 	with all_inputs select W1 <=
-		'1' when "100001" -- p1 rock & p2 scissors
-			| "010100" -- p1 paper & p2 rock
-			| "001010", -- p1 scissors & p2 paper
+		'1' when "100001",
 		'0' when others;
 
 	-- Using a "conditional signal assignment", aka "when/else"
 	W2 <=
-        '1' when all_inputs = "001100" else -- p2 rock & p1 scissors
-		  '1' when all_inputs = "100010" else -- p2 paper & p1 rock
-		  '1' when all_inputs = "010001" else -- p2 scissors & p1 paper
-        '0';
+		'1' when all_inputs = "100010" else
+		'0';
 	
 	-- Using when/else in a different way
 	E1 <=
-        '1' when (R1 = '1' and P1 = '1') or (P1 = '1' and S1 = '1') or (S1 = '1' and R1 = '1') else
-        '0';
+		'1' when (R1 = '1') and (S1 = '1') else
+		'0';
 	
 	-- Using Boolean expression
-	E2 <= (R2 and P2) or (P2 and S2) or (S2 and R2);
+	E2 <= (R2 and S2);
 			
 
 end Internals;
