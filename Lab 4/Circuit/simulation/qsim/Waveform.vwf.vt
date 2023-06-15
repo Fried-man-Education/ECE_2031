@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "06/15/2023 12:48:47"
+// Generated on "06/15/2023 13:57:03"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          Lab2
 // 
@@ -30,56 +30,64 @@
 module Lab2_vlg_vec_tst();
 // constants                                           
 // general purpose registers
-reg W;
-reg X;
-reg Y;
-reg Z;
+reg GO;
+reg Q1;
+reg Q2;
+reg STOP;
 // wires                                               
-wire A;
+wire g_en;
+wire Q1n;
+wire Q2n;
+wire r_en;
+wire y_en;
 
 // assign statements (if any)                          
 Lab2 i1 (
 // port map - connection between master ports and signals/registers   
-	.A(A),
-	.W(W),
-	.X(X),
-	.Y(Y),
-	.Z(Z)
+	.g_en(g_en),
+	.GO(GO),
+	.Q1(Q1),
+	.Q1n(Q1n),
+	.Q2(Q2),
+	.Q2n(Q2n),
+	.r_en(r_en),
+	.STOP(STOP),
+	.y_en(y_en)
 );
 initial 
 begin 
 #3200000 $finish;
 end 
 
-// W
+// Q1
 always
 begin
-	W = 1'b0;
-	W = #1600000 1'b1;
+	Q1 = 1'b0;
+	Q1 = #1600000 1'b1;
 	#1600000;
 end 
 
-// X
+// Q2
 always
 begin
-	X = 1'b0;
-	X = #800000 1'b1;
+	Q2 = 1'b0;
+	Q2 = #800000 1'b1;
 	#800000;
 end 
 
-// Y
+// STOP
 always
 begin
-	Y = 1'b0;
-	Y = #400000 1'b1;
+	STOP = 1'b0;
+	STOP = #400000 1'b1;
 	#400000;
 end 
 
-// Z
+// GO
 always
 begin
-	Z = 1'b0;
-	Z = #200000 1'b1;
+	GO = 1'b0;
+	GO = #200000 1'b1;
 	#200000;
 end 
 endmodule

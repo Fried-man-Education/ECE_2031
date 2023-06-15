@@ -26,7 +26,7 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Jun 15 12:48:47 2023
+    Info: Processing started: Thu Jun 15 13:57:02 2023
 Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Lab2 -c Lab2 --vector_source="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/Waveform.vwf" --testbench_file="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/Waveform.vwf.vt"
 Info (119006): Selected device 5CSXFC6D6F31C6 for design "Lab2"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -56,14 +56,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Jun 15 12:48:48 2023
+    Info: Processing started: Thu Jun 15 13:57:03 2023
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/" Lab2 -c Lab2
 Info (119006): Selected device 5CSXFC6D6F31C6 for design "Lab2"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file Lab2.vo in folder "C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4721 megabytes
-    Info: Processing ended: Thu Jun 15 12:48:48 2023
+    Info: Peak virtual memory: 4722 megabytes
+    Info: Processing ended: Thu Jun 15 13:57:03 2023
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
@@ -83,39 +83,40 @@ Reading A:/intelFPGA_lite/19.1/modelsim_ase/tcl/vsim/pref.tcl
 
 # 10.5b
 
+
 # do Lab2.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:48:48 on Jun 15,2023
+# Start time: 13:57:04 on Jun 15,2023
 # vlog -work work Lab2.vo 
 # -- Compiling module Lab2
 # 
 # Top level modules:
 # 	Lab2
-# End time: 12:48:49 on Jun 15,2023, Elapsed time: 0:00:01
+# End time: 13:57:04 on Jun 15,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:48:49 on Jun 15,2023
+# Start time: 13:57:04 on Jun 15,2023
 # vlog -work work Waveform.vwf.vt 
 # -- Compiling module Lab2_vlg_vec_tst
 # 
 # Top level modules:
 # 	Lab2_vlg_vec_tst
-# End time: 12:48:49 on Jun 15,2023, Elapsed time: 0:00:00
+# End time: 13:57:04 on Jun 15,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Lab2_vlg_vec_tst 
-# Start time: 12:48:49 on Jun 15,2023
+# Start time: 13:57:04 on Jun 15,2023
 # Loading work.Lab2_vlg_vec_tst
 # Loading work.Lab2
 # Loading cyclonev_ver.cyclonev_io_obuf
 # Loading cyclonev_ver.cyclonev_io_ibuf
 # Loading cyclonev_ver.cyclonev_lcell_comb
 # after#25
-# ** Note: $finish    : Waveform.vwf.vt(51)
+# ** Note: $finish    : Waveform.vwf.vt(59)
 #    Time: 3200 ns  Iteration: 0  Instance: /Lab2_vlg_vec_tst
-# End time: 12:48:49 on Jun 15,2023, Elapsed time: 0:00:00
+# End time: 13:57:04 on Jun 15,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
@@ -128,7 +129,7 @@ Reading C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/Lab
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/Lab2_20230615124849.sim.vwf
+Writing the resulting VWF to C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/Lab2_20230615135704.sim.vwf
 
 Finished VCD to VWF conversion.
 

@@ -9,46 +9,46 @@ z2
 cModel Technology
 Z0 dC:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim
 vLab2
-Z1 !s110 1686847729
+Z1 !s110 1686851824
 !i10b 1
-!s100 7DfjlYLi=df]jUcRcZUBQ2
-Id9;AcJdKb@LkhFWZfY>Ok3
+!s100 _miP5Ue[ERIdUn3@PeoS30
+IgzDM@BMQd_^ke6C:9T^>Z2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1686847728
+Z3 w1686851823
 8Lab2.vo
 FLab2.vo
 L0 32
-Z3 OV;L;10.5b;63
+Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1686847728.000000
+Z5 !s108 1686851824.000000
 !s107 Lab2.vo|
 !s90 -work|work|Lab2.vo|
 !i113 1
-Z4 o-work work
-Z5 tCvgOpt 0
+Z6 o-work work
+Z7 tCvgOpt 0
 n@lab2
 vLab2_vlg_vec_tst
 R1
 !i10b 1
-!s100 Bn_@W[PTLXbTa6]UH5QQd0
-I42`6[YiV`^fMA[igTKTGm0
+!s100 P2=YHkD=bR_YHNXDdhWNI1
+II_H`;nB^0RKQV<6YkGk`?3
 R2
 R0
-w1686847727
+R3
 8Waveform.vwf.vt
 FWaveform.vwf.vt
 L0 30
-R3
+R4
 r1
 !s85 0
 31
-!s108 1686847729.000000
+R5
 !s107 Waveform.vwf.vt|
 !s90 -work|work|Waveform.vwf.vt|
 !i113 1
-R4
-R5
+R6
+R7
 n@lab2_vlg_vec_tst
