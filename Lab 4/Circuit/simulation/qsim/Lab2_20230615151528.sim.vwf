@@ -1,48 +1,3 @@
-/*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Lab2 -c Lab2 --vector_source="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/Waveform.vwf" --testbench_file="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Lab2 -c Lab2 --vector_source="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/Waveform.vwf" --testbench_file="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/" Lab2 -c Lab2</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim/" Lab2 -c Lab2</tnetlist_cmd>
-<modelsim_script>onerror {exit -code 1}
-vlib work
-vlog -work work Lab2.vo
-vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Lab2_vlg_vec_tst
-vcd file -direction Lab2.msim.vcd
-vcd add -internal Lab2_vlg_vec_tst/*
-vcd add -internal Lab2_vlg_vec_tst/i1/*
-proc simTimestamp {} {
-    echo "Simulation time: $::now ps"
-    if { [string equal running [runStatus]] } {
-        after 2500 simTimestamp
-    }
-}
-after 2500 simTimestamp
-run -all
-quit -f
-
-</modelsim_script>
-<modelsim_script_timing>onerror {exit -code 1}
-vlib work
-vlog -work work Lab2.vo
-vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Lab2_vlg_vec_tst
-vcd file -direction Lab2.msim.vcd
-vcd add -internal Lab2_vlg_vec_tst/*
-vcd add -internal Lab2_vlg_vec_tst/i1/*
-proc simTimestamp {} {
-    echo "Simulation time: $::now ps"
-    if { [string equal running [runStatus]] } {
-        after 2500 simTimestamp
-    }
-}
-after 2500 simTimestamp
-run -all
-quit -f
-
-</modelsim_script_timing>
-<hdl_lang>verilog</hdl_lang>
-</simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
 editor if you plan to continue editing the block that represents it in
@@ -185,7 +140,45 @@ TRANSITION_LIST("CLOCK")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 20;
+			REPEAT = 1;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
+			LEVEL 0 FOR 25.0;
+			LEVEL 1 FOR 25.0;
 			LEVEL 0 FOR 25.0;
 			LEVEL 1 FOR 25.0;
 		}
@@ -197,7 +190,19 @@ TRANSITION_LIST("g_en")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 225.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 325.0;
+		}
 	}
 }
 
@@ -206,13 +211,19 @@ TRANSITION_LIST("GO")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 160.0;
-		LEVEL 1 FOR 50.0;
-		LEVEL 0 FOR 50.0;
-		LEVEL 1 FOR 280.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 360.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 190.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 140.0;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 80.0;
+			LEVEL 0 FOR 60.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 360.0;
+		}
 	}
 }
 
@@ -221,7 +232,19 @@ TRANSITION_LIST("Q[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 225.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 325.0;
+		}
 	}
 }
 
@@ -230,7 +253,19 @@ TRANSITION_LIST("Q[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 125.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 115.0;
+			LEVEL 0 FOR 160.0;
+		}
 	}
 }
 
@@ -239,7 +274,19 @@ TRANSITION_LIST("r_en")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 125.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 115.0;
+			LEVEL 0 FOR 160.0;
+		}
 	}
 }
 
@@ -248,9 +295,13 @@ TRANSITION_LIST("RESETN")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 840.0;
-		LEVEL 0 FOR 50.0;
-		LEVEL 1 FOR 110.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 840.0;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 110.0;
+		}
 	}
 }
 
@@ -259,17 +310,21 @@ TRANSITION_LIST("STOP")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 50.0;
-		LEVEL 0 FOR 150.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 70.0;
-		LEVEL 1 FOR 110.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 70.0;
-		LEVEL 1 FOR 140.0;
-		LEVEL 0 FOR 200.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 90.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 120.0;
+			LEVEL 1 FOR 80.0;
+			LEVEL 0 FOR 70.0;
+			LEVEL 1 FOR 110.0;
+			LEVEL 0 FOR 10.0;
+			LEVEL 1 FOR 60.0;
+			LEVEL 0 FOR 70.0;
+			LEVEL 1 FOR 140.0;
+			LEVEL 0 FOR 200.0;
+		}
 	}
 }
 
@@ -278,7 +333,19 @@ TRANSITION_LIST("y_en")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 125.0;
+			LEVEL 0 FOR 300.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 115.0;
+			LEVEL 1 FOR 160.0;
+		}
 	}
 }
 

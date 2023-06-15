@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "06/15/2023 13:57:03"
+// Generated on "06/15/2023 15:20:04"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          Lab2
 // 
@@ -30,65 +30,75 @@
 module Lab2_vlg_vec_tst();
 // constants                                           
 // general purpose registers
+reg CLOCK;
 reg GO;
-reg Q1;
-reg Q2;
+reg RESETN;
 reg STOP;
 // wires                                               
 wire g_en;
-wire Q1n;
-wire Q2n;
+wire [1:0] Q;
 wire r_en;
 wire y_en;
 
 // assign statements (if any)                          
 Lab2 i1 (
 // port map - connection between master ports and signals/registers   
+	.CLOCK(CLOCK),
 	.g_en(g_en),
 	.GO(GO),
-	.Q1(Q1),
-	.Q1n(Q1n),
-	.Q2(Q2),
-	.Q2n(Q2n),
+	.Q(Q),
 	.r_en(r_en),
+	.RESETN(RESETN),
 	.STOP(STOP),
 	.y_en(y_en)
 );
 initial 
 begin 
-#3200000 $finish;
+#1000000 $finish;
 end 
 
-// Q1
+// CLOCK
 always
 begin
-	Q1 = 1'b0;
-	Q1 = #1600000 1'b1;
-	#1600000;
+	CLOCK = 1'b0;
+	CLOCK = #25000 1'b1;
+	#25000;
 end 
 
-// Q2
-always
+// RESETN
+initial
 begin
-	Q2 = 1'b0;
-	Q2 = #800000 1'b1;
-	#800000;
+	RESETN = 1'b1;
+	RESETN = #840000 1'b0;
+	RESETN = #50000 1'b1;
 end 
 
 // STOP
-always
+initial
 begin
 	STOP = 1'b0;
-	STOP = #400000 1'b1;
-	#400000;
+	STOP = #60000 1'b1;
+	STOP = #50000 1'b0;
+	STOP = #150000 1'b1;
+	STOP = #80000 1'b0;
+	STOP = #70000 1'b1;
+	STOP = #110000 1'b0;
+	STOP = #10000 1'b1;
+	STOP = #60000 1'b0;
+	STOP = #70000 1'b1;
+	STOP = #140000 1'b0;
 end 
 
 // GO
-always
+initial
 begin
 	GO = 1'b0;
-	GO = #200000 1'b1;
-	#200000;
+	GO = #160000 1'b1;
+	GO = #50000 1'b0;
+	GO = #50000 1'b1;
+	GO = #280000 1'b0;
+	GO = #60000 1'b1;
+	GO = #40000 1'b0;
 end 
 endmodule
 
