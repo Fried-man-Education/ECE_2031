@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/simulation/qsim
+vLab2
+Z1 !s110 1686847729
+!i10b 1
+!s100 7DfjlYLi=df]jUcRcZUBQ2
+Id9;AcJdKb@LkhFWZfY>Ok3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1686847728
+8Lab2.vo
+FLab2.vo
+L0 32
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1686847728.000000
+!s107 Lab2.vo|
+!s90 -work|work|Lab2.vo|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@lab2
+vLab2_vlg_vec_tst
+R1
+!i10b 1
+!s100 Bn_@W[PTLXbTa6]UH5QQd0
+I42`6[YiV`^fMA[igTKTGm0
+R2
+R0
+w1686847727
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 30
+R3
+r1
+!s85 0
+31
+!s108 1686847729.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R4
+R5
+n@lab2_vlg_vec_tst

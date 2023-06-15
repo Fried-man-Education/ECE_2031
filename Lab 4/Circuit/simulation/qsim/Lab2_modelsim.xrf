@@ -1,0 +1,10 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/Waveform.vwf
+source_file = 1, C:/Users/mrchargerlover/repos/ECE_2031/Lab 4/Circuit/lab2.bdf
+design_name = Lab2
+instance = comp, \A~output , A~output, Lab2, 1
+instance = comp, \Y~input , Y~input, Lab2, 1
+instance = comp, \Z~input , Z~input, Lab2, 1
+instance = comp, \W~input , W~input, Lab2, 1
+instance = comp, \X~input , X~input, Lab2, 1
+instance = comp, \inst2~0 , inst2~0, Lab2, 1
