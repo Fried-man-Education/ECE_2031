@@ -1,0 +1,133 @@
+<session jtag_chain="DE-SoC [USB-1]" jtag_device="@2: 5CSEBA6(.|ES)/5CSEMA6/.. (0x02D020DD)" sof_file="output_files/Lab5Wrapper.sof">
+  <display_tree gui_logging_enabled="0">
+    <display_branch instance="auto_signaltap_0" log="USE_GLOBAL_TEMP" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
+  </display_tree>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <single attribute="lock mode" value="0"/>
+    <multi attribute="frame size" size="2" value="1280,961"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <multi attribute="jtag widget size" size="2" value="348,135"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+    <single attribute="hierarchy widget height" value="96"/>
+  </global_info>
+  <instance enabled="true" entity_name="sld_signaltap" is_auto_node="yes" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
+    <position_info>
+      <single attribute="setup vertical scroll position" value="0"/>
+      <single attribute="setup horizontal scroll position" value="0"/>
+      <single attribute="active tab" value="0"/>
+      <single attribute="data vertical scroll position" value="0"/>
+      <single attribute="data horizontal scroll position" value="0"/>
+      <single attribute="zoom level numerator" value="1"/>
+      <single attribute="zoom level denominator" value="2"/>
+      <single attribute="zoom offset numerator" value="261632"/>
+      <single attribute="zoom offset denominator" value="1"/>
+      <multi attribute="timebars" size="0" value=""/>
+    </position_info>
+    <signal_set global_temp="1" name="signal_set: 2023/06/22 16:52:52  #0">
+      <clock name="sample_clk" polarity="posedge" tap_mode="classic"/>
+      <config pipeline_level="0" ram_type="AUTO" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="512" trigger_in_enable="no" trigger_out_enable="no"/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire name="KEY0" tap_mode="classic"/>
+          <wire name="clk_out" tap_mode="classic"/>
+          <wire name="g_out" tap_mode="classic"/>
+          <wire name="go_in" tap_mode="classic"/>
+          <wire name="r_out" tap_mode="classic"/>
+          <wire name="stop_in" tap_mode="classic"/>
+          <wire name="y_out" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire name="KEY0" tap_mode="classic"/>
+          <wire name="clk_out" tap_mode="classic"/>
+          <wire name="g_out" tap_mode="classic"/>
+          <wire name="go_in" tap_mode="classic"/>
+          <wire name="r_out" tap_mode="classic"/>
+          <wire name="stop_in" tap_mode="classic"/>
+          <wire name="y_out" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec>
+          <wire name="KEY0" tap_mode="classic"/>
+          <wire name="clk_out" tap_mode="classic"/>
+          <wire name="g_out" tap_mode="classic"/>
+          <wire name="go_in" tap_mode="classic"/>
+          <wire name="r_out" tap_mode="classic"/>
+          <wire name="stop_in" tap_mode="classic"/>
+          <wire name="y_out" tap_mode="classic"/>
+        </storage_qualifier_input_vec>
+      </signal_vec>
+      <presentation>
+        <unified_setup_data_view>
+          <node data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="clk_out" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          <node data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="rising edge" name="KEY0" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <node data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="stop_in" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          <node data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="go_in" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+          <node data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="r_out" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+          <node data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="y_out" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+          <node data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="g_out" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+        </unified_setup_data_view>
+        <data_view>
+          <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="clk_out" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="rising edge" name="KEY0" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="stop_in" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="go_in" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+          <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="r_out" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+          <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="y_out" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+          <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="g_out" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+        </data_view>
+        <setup_view>
+          <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="clk_out" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="rising edge" name="KEY0" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="stop_in" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="go_in" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+          <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="r_out" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+          <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="y_out" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+          <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="g_out" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+        </setup_view>
+        <trigger_in_editor/>
+        <trigger_out_editor/>
+      </presentation>
+      <trigger CRC="9A475009" attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2023/06/22 16:52:52  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="128" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+        <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
+        <events use_custom_flow_control="no">
+          <level enabled="yes" name="condition1" type="basic">'KEY0' == rising edge
+            <power_up enabled="yes">
+            </power_up>
+            <op_node/>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>1111111
+            <pwr_up_transitional>1111111</pwr_up_transitional>
+          </transitional>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+        </storage_qualifier_events>
+        <log>
+          <data global_temp="1" name="log: Trig @ 2023/06/22 17:07:57 (0:0:55.6 elapsed)" power_up_mode="false" sample_depth="512" trigger_position="64">11000011100001110000110000011000001100000110000011000001100000110000011000001100000110000011100001110000111000011100001110000111000011100001110000111000011100001100000110000011000001100000100000010000001000000100000010000001000000101000010100001010000101000010100001010000101000010100001010000101000010000001000000100000010000001000000100000010000001000000100000010000001010000101000010100001010000101000010100001010000101000010100001010000100000011000001100000110000011000001100000110000011000001100000110000011100001110000111000011100001110000111000011100001110000111000011100001100000110000011000001100000110000011000001100000110000011000001100000111000011100001110000111000011100001110000111000011100001110000111000011000001100000110010011001001100100110010011001001100100110010011001001111100011110001111000111100011110001111000111100011110001111000111100010110001011000101100010110001011000101100010110001011000101100010110001111000111100011110001111000111100011110001111000111100011110001111000101100010110001011000101100010110001011000101100010110001011000101100011110001111000111100011110001111000111100011110101111010111101011110101011010101101010110101011010101101010110101011010101101010110101011010110111011011101101110110111011011101101110110111011011101101110110111010011101001110100111010011101001110100111010011101001110100111010011101101110110111011011101101110110111011011101101110110111011011101101110100111010011101001110100111010011101001110100111010011101001110100111011011101101110110111011011101101110110111011011101101110110111011011101001110100111010011101001110100111010011101001110100111010011101001110110111011011101101110110111011011101101110110111011011101101110110110010011001001100100110010011001001100100110010011001001100100110010011001111000111100011110001111000111100011110001111000111100011110001111000101100010110001011000101100010110001011000101100010110001011000101100011110001111000111100011110001111000111100011110001111000111100011110001011000101100010110001010000101000010100001010000101000010100001010000110000111000011100001110000111000011100001110000111000011100001110000110000011000001100000110000011000001100000110000011000001100000110000011100001110000111000011100001110000111000011100001110000111000011100001100000110000011000001100000110000011000001100000110000011000001100000111000011100001110000111000011100001110000111000011100001110000111000011000001100000110000011000001100000110000011000001100000110010011001001111100011110001111000111100011110001111000111100011110001111000111100010110001011000101100010110001011000101100010110001011000101100010110001111000111100011110001111000111100011110001111000111100011110001111000101100010110001011000101100010110001011000101100010110001011000101100011100101110010111001011100101110010111001011100101110010111001011100101010010101001010100101010010101001010100101010010101001010100101010010110001111000111100011110001111000111100011110001111000111100011110001110000111000011100001110000111000011100001110000111000011100001110000111100110110011011001101100110110011011001101100110110011011001101100110100011010001101000110100011010001101000110100011010001101000110100011011001101100110110011011001101100110110011011001101100100110010011001001000100100010010001001000100100010010001001000100100010010001001000100110010011001001100100110010011001001100100110010011001001100100110010010001001000100100010010001001000100100010010001001000100100010010001001100100110010011001001100100110010011001001100100110010011001001100100100010010001001000100100010010001001000100100010010011001001100</data>
+          <extradata>1111111111111111111111111111111111111111111111111111111111111111T111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</extradata>
+        </log>
+      </trigger>
+    </signal_set>
+  </instance>
+  <mnemonics/>
+  <static_plugin_mnemonics/>
+</session>

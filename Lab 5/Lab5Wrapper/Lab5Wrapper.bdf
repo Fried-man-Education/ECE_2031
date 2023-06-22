@@ -278,6 +278,63 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 0)(pt 0 184))
 	)
 )
+(symbol
+	(rect 472 328 616 440)
+	(text "PreLab5" (rect 5 0 45 12)(font "Arial" ))
+	(text "inst1" (rect 8 96 30 113)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "stop" (rect 0 0 21 12)(font "Arial" ))
+		(text "stop" (rect 21 27 42 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "go" (rect 0 0 11 12)(font "Arial" ))
+		(text "go" (rect 21 43 32 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clock" (rect 0 0 25 12)(font "Arial" ))
+		(text "clock" (rect 21 59 46 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "resetn" (rect 0 0 30 12)(font "Arial" ))
+		(text "resetn" (rect 21 75 51 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 144 32)
+		(output)
+		(text "r_en" (rect 0 0 21 12)(font "Arial" ))
+		(text "r_en" (rect 106 27 127 39)(font "Arial" ))
+		(line (pt 144 32)(pt 128 32))
+	)
+	(port
+		(pt 144 48)
+		(output)
+		(text "y_en" (rect 0 0 24 12)(font "Arial" ))
+		(text "y_en" (rect 103 43 127 55)(font "Arial" ))
+		(line (pt 144 48)(pt 128 48))
+	)
+	(port
+		(pt 144 64)
+		(output)
+		(text "g_en" (rect 0 0 23 12)(font "Arial" ))
+		(text "g_en" (rect 104 59 127 71)(font "Arial" ))
+		(line (pt 144 64)(pt 128 64))
+	)
+	(drawing
+		(rectangle (rect 16 16 128 96))
+	)
+)
 (connector
 	(pt 448 504)
 	(pt 448 408)
@@ -311,11 +368,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 752 200)
 )
 (connector
-	(text "clk_1Hz" (rect 584 144 621 161)(font "Intel Clear" ))
-	(pt 576 160)
-	(pt 664 160)
-)
-(connector
 	(pt 648 360)
 	(pt 616 360)
 )
@@ -326,11 +378,6 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt 648 392)
 	(pt 616 392)
-)
-(connector
-	(text "clk_1Hz" (rect 376 376 413 393)(font "Intel Clear" ))
-	(pt 368 392)
-	(pt 424 392)
 )
 (connector
 	(pt 368 408)
@@ -345,12 +392,34 @@ https://fpgasoftware.intel.com/eula.
 	(pt 472 376)
 )
 (connector
+	(pt 448 408)
+	(pt 472 408)
+)
+(connector
+	(text "clk_1Hz" (rect 584 144 621 161)(font "Intel Clear" ))
+	(pt 728 160)
+	(pt 576 160)
+)
+(connector
+	(pt 728 320)
+	(pt 728 160)
+)
+(connector
+	(pt 728 320)
+	(pt 120 320)
+)
+(connector
+	(text "clk_1Hz" (rect 376 376 413 393)(font "Intel Clear" ))
+	(pt 120 392)
+	(pt 424 392)
+)
+(connector
 	(pt 424 392)
 	(pt 472 392)
 )
 (connector
-	(pt 448 408)
-	(pt 472 408)
+	(pt 120 320)
+	(pt 120 392)
 )
 (junction (pt 424 392))
 (junction (pt 448 408))
@@ -365,7 +434,7 @@ https://fpgasoftware.intel.com/eula.
 (title_block
 	(rect 584 600 952 720)
 	(section (rect 0 24 368 48)(text "COMPANY" (rect 2 0 57 12)(font "Arial" ))(text "Georgia Tech" (rect 56 2 170 20)(font "Arial" (font_size 12)))(border))
-	(section (rect 0 96 240 120)(text "DATE" (rect 2 0 30 12)(font "Arial" ))(text "Thu Sep 22 10:29:46 2022" (rect 56 3 235 19)(font "Arial" (font_size 10)))(date)(border))
+	(section (rect 0 96 240 120)(text "DATE" (rect 2 0 30 12)(font "Arial" ))(text "Thu Jun 22 16:01:04 2023" (rect 56 3 231 19)(font "Arial" (font_size 10)))(date)(border))
 	(section (rect 0 48 368 72)(text "DESIGNER" (rect 2 0 59 12)(font "Arial" ))(text "Kevin Johnson" (rect 56 2 177 20)(font "Arial" (font_size 12)))(border))
 	(section (rect 0 72 280 96)(text "NUMBER" (rect 2 0 49 12)(font "Arial" ))(text "1.00" (rect 56 1 85 17)(font "Arial" (font_size 10)))(border))
 	(section (rect 310 96 368 120)(text "OF" (rect 10 0 25 12)(font "Arial" ))(text "1" (rect 34 4 42 20)(font "Arial" (font_size 10))))
