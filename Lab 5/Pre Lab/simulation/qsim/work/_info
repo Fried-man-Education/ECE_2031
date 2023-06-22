@@ -1,0 +1,102 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/mrchargerlover/repos/ECE_2031/Lab 5/Pre Lab/simulation/qsim
+Eprelab5
+Z1 w1687460467
+Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 CX9c^[CNfbzHb3XCH3hoa1
+Z3 DPx8 cyclonev 19 cyclonev_components 0 22 NZ_cKj>1HW_D7i1UeTO[31
+Z4 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 6`GHcm:DR>=X_840X1FV;0
+Z5 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z6 DPx6 altera 11 dffeas_pack 0 22 dbC[kT^o8P[ggjb1if:RT1
+Z7 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z9 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z10 DPx6 altera 28 altera_primitives_components 0 22 PoC3B_7fao?IDTS[NR5Q62
+R0
+Z11 8PreLab5.vho
+Z12 FPreLab5.vho
+l0
+L39
+VXeUInLzM8l;16:dMP[nbG0
+!s100 aYP?KA:eYQ5VlG^aAnZRS0
+Z13 OV;C;10.5b;63
+32
+Z14 !s110 1687460467
+!i10b 1
+Z15 !s108 1687460467.000000
+Z16 !s90 -work|work|PreLab5.vho|
+Z17 !s107 PreLab5.vho|
+!i113 1
+Z18 o-work work
+Z19 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+DEx4 work 7 prelab5 0 22 XeUInLzM8l;16:dMP[nbG0
+l86
+L51
+V9_B7Xf<S[[V:3?j^XSifg0
+!s100 AFmI[RSL<a8?UjFc7A4<i2
+R13
+32
+R14
+!i10b 1
+R15
+R16
+R17
+!i113 1
+R18
+R19
+Eprelab5_vhd_vec_tst
+Z20 w1687460466
+R8
+R9
+R0
+Z21 8Waveform.vwf.vht
+Z22 FWaveform.vwf.vht
+l0
+L32
+Vj<Do9f2i@R9C2o;7eGHlW0
+!s100 l[gH8=7?m>0N:G[?3O;g_3
+R13
+32
+R14
+!i10b 1
+R15
+Z23 !s90 -work|work|Waveform.vwf.vht|
+Z24 !s107 Waveform.vwf.vht|
+!i113 1
+R18
+R19
+Aprelab5_arch
+R8
+R9
+Z25 DEx4 work 19 prelab5_vhd_vec_tst 0 22 j<Do9f2i@R9C2o;7eGHlW0
+l55
+L34
+Vl3c@WGYMCmOKzTfaQA0VP0
+!s100 MaLSdCFKm[9W`P[oEa;Id1
+R13
+32
+R14
+!i10b 1
+R15
+R23
+R24
+!i113 1
+R18
+R19
