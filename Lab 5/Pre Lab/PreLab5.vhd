@@ -1,9 +1,8 @@
--- Quartus Prime VHDL Template
--- Four-State Moore State Machine
-
--- A Moore machine's outputs are dependent only on the current state.
--- The output is written only when the state changes.  (State
--- transitions are synchronous.)
+-- PRELAB5.VHD
+-- Three-State Moore State Machine For Status Lighting
+-- Andrew Friedman
+-- ECE 2031 CS
+-- 06/23/2023
 
 library ieee;
 use ieee.std_logic_1164.all;
