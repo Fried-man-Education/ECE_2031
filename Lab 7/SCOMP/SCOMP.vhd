@@ -34,8 +34,8 @@ architecture a of SCOMP is
 	type state_type is (
 		init, fetch, decode, ex_nop,
 		ex_load, ex_store, ex_store2, ex_iload, ex_istore, ex_istore2, ex_loadi,
-		ex_add, ex_addi,
-		ex_jump, ex_jneg, ex_jzero,
+		ex_add, ex_addi, ex_sub,
+		ex_jump, ex_jneg, ex_jzero, ex_jpos,
 		ex_return, ex_call,
 		ex_and, ex_or, ex_xor, ex_shift,
 		ex_in, ex_in2, ex_out, ex_out2
@@ -154,10 +154,14 @@ begin
 							state <= ex_store;
 						when "00011" =>       -- add
 							state <= ex_add;
+						when "00100" =>       -- sub
+							state <= ex_sub;
 						when "00101" =>       -- jump
 							state <= ex_jump;
 						when "00110" =>       -- jneg
 							state <= ex_jneg;
+						when "00111" =>       -- jpos
+							state <= ex_jpos;
 						when "01000" =>       -- jzero
 							state <= ex_jzero;
 						when "01001" =>       -- and
@@ -207,6 +211,10 @@ begin
 				when ex_add =>
 					AC    <= AC + mem_data;   -- addition
 					state <= fetch;
+					
+				when ex_sub =>
+					AC    <= AC - mem_data;   -- subtraction
+					state <= fetch;
 
 				when ex_jump =>
 					PC    <= operand; -- overwrite PC with new address
@@ -214,6 +222,12 @@ begin
 
 				when ex_jneg =>
 					if (AC(15) = '1') then
+						PC    <= operand;      -- Change the program counter to the operand
+					end if;
+					state <= fetch;
+					
+				when ex_jpos =>
+					if (AC(15) = '0' and AC /= x"0000") then
 						PC    <= operand;      -- Change the program counter to the operand
 					end if;
 					state <= fetch;

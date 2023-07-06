@@ -44,7 +44,7 @@ CheckJPOS:
 	JUMP   WrongJump    ; if that jump fails, something is wrong
 
 Questions:
-	LOADI  &H1337         ; Why doesn't this operand work?
+	LOADI  &H0         ; Why doesn't this operand work?
 	OR     255          ; Why doesn't AC get OR'd with 255 (0xFF)?
 	
 Finish:

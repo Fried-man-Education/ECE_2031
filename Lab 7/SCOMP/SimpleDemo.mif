@@ -1,0 +1,54 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 0820; -- 	LOAD   One
+0001: 1821; -- 	ADD    Two
+0002: 1824; -- 	ADD    NegTwo
+0003: 6805; -- 	ADDI   5
+0004: 6FFB; -- 	ADDI   -5
+0005: 2022; -- 	SUB    Three
+0006: 2025; -- 	SUB    NegThree
+0007: 102C; --     STORE  Temp         ; What value gets stored?
+0008: 182C; --     ADD    Temp
+0009: 082C; --     LOAD   Temp         ; Is AC now 1 or 2?
+000A: B800; -- 	LOADI  0
+000B: 502A; -- 	OR     LowByte
+000C: 4828; -- 	AND    Bit2
+000D: 582A; -- 	XOR    LowByte
+000E: 6004; -- 	SHIFT  4
+000F: 6014; -- 	SHIFT  -4
+0010: B800; -- 	LOADI  0
+0011: 3013; -- 	JNEG   WrongJump    ; 0 is not negative
+0012: 4015; -- 	JZERO  CheckJPOS
+0013: B8EE; -- 	LOADI  &HEE         ; 0xEE in AC indicates an error
+0014: 2813; -- 	JUMP   WrongJump    ; Infinite loop
+0015: BFF8; -- 	LOADI  -8
+0016: 3813; -- 	JPOS   WrongJump    ; -8 is not positive
+0017: B800; -- 	LOADI  0
+0018: 3813; -- 	JPOS   WrongJump    ; 0 is not positive
+0019: B808; -- 	LOADI  8
+001A: 381C; -- 	JPOS   Questions    ; 8 IS positive, so...
+001B: 2813; -- 	JUMP   WrongJump    ; if that jump fails, something is wrong
+001C: B800; -- 	LOADI  &H0         ; Why doesn't this operand work?
+001D: 50FF; -- 	OR     255          ; Why doesn't AC get OR'd with 255 (0xFF)?
+001E: 082B; -- 	LOAD   Buzz
+001F: 281E; -- 	JUMP   Finish       ; Infinite loop
+0020: 0001; -- One:       DW   1
+0021: 0002; -- Two:       DW   2
+0022: 0003; -- Three:     DW   3
+0023: FFFF; -- NegOne:    DW  -1
+0024: FFFE; -- NegTwo:    DW  -2
+0025: FFFD; -- NegThree:  DW  -3
+0026: 0001; -- Bit0:      DW  &B0001
+0027: 0002; -- Bit1:      DW  &B0010
+0028: 0004; -- Bit2:      DW  &B0100
+0029: 0008; -- Bit3:      DW  &B1000
+002A: 00FF; -- LowByte:   DW  &H00FF
+002B: ABEE; -- Buzz:      DW  &HABEE
+002C: 0000; -- Temp:      DW  0
+[002D..07FF] : 0000; -- [empty memory]
+END;
