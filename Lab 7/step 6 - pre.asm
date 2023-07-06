@@ -1,0 +1,11 @@
+ORG 0
+	LOADI	5
+	ADD	ADDED
+	STORE 	TARGET
+Finish:
+	JUMP 	Finish
+    
+ORG &H012
+	ADDED: 		DW	&H24
+ORG &H01A
+	TARGET:		DW	&H0
