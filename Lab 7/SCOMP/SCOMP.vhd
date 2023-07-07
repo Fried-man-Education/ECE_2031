@@ -1,6 +1,8 @@
--- SCOMP, the Simple Computer.
+-- SCOMP.vhd
 -- This VHDL defines a simple 16-bit processor that is easy to understand and modify.
--- Updated 2021-06-22
+-- Andrew Friedman
+-- ECE 2031 CS
+-- 07/06/2023
 
 library altera_mf;
 library lpm;
