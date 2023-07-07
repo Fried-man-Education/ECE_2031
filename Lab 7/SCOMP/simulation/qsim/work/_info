@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/afriedman38/OneDrive - Georgia Institute of Technology/Desktop/ECE_2031/Lab 7/SCOMP/simulation/qsim
 Escomp
-Z1 w1688676280
+Z1 w1688679471
 Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 CX9c^[CNfbzHb3XCH3hoa1
 Z3 DPx8 cyclonev 19 cyclonev_components 0 22 NZ_cKj>1HW_D7i1UeTO[31
 Z4 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 6`GHcm:DR>=X_840X1FV;0
@@ -28,9 +28,9 @@ V:_Dk9[Tn0BO5hD0=X8cCA1
 !s100 :of=7I3g9ETYZDnX<^L??2
 Z13 OV;C;10.5b;63
 32
-Z14 !s110 1688676282
+Z14 !s110 1688679472
 !i10b 1
-Z15 !s108 1688676282.000000
+Z15 !s108 1688679472.000000
 Z16 !s90 -work|work|SCOMP_bare.vho|
 Z17 !s107 SCOMP_bare.vho|
 !i113 1
@@ -49,8 +49,8 @@ R10
 DEx4 work 5 scomp 0 22 :_Dk9[Tn0BO5hD0=X8cCA1
 l928
 L56
-V`m7^hB77X4gY@c<II2APD2
-!s100 M91]oEg<SOnfBS4J<2GjW3
+VG1H=29R]1S9FENVHhzleJ0
+!s100 Lokd@GZEH<8Vd7hQC5O_^0
 R13
 32
 R14
@@ -62,7 +62,7 @@ R17
 R18
 R19
 Escomp_vhd_vec_tst
-Z20 w1688676276
+Z20 w1688679467
 R8
 R9
 R0
@@ -85,11 +85,11 @@ R19
 Ascomp_arch
 R8
 R9
-DEx4 work 17 scomp_vhd_vec_tst 0 22 VkLB6S12>[7^?06M5n6Yi1
+Z25 DEx4 work 17 scomp_vhd_vec_tst 0 22 VkLB6S12>[7^?06M5n6Yi1
 l65
 L34
-VZ@S^6agaaZDKWGIGgh2lI0
-!s100 e1DTfdk35WMoONCd83=mf2
+Z26 VZ@S^6agaaZDKWGIGgh2lI0
+Z27 !s100 e1DTfdk35WMoONCd83=mf2
 R13
 32
 R14

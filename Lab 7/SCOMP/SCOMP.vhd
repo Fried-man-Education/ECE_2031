@@ -63,7 +63,7 @@ begin
 		numwords_a => 2048,
 		widthad_a => 11,
 		width_a => 16,
-		init_file => "SimpleDemo.mif",
+		init_file => "Arithmetic.mif",
 		intended_device_family => "CYCLONE V",
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",

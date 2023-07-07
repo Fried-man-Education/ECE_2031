@@ -1,0 +1,27 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 080E; --     LOAD	Curr            ; load current value
+0001: 6001; --     SHIFT 	1               ; *= 2
+0002: 100E; --     STORE 	Curr            ; cache result
+0003: 2010; --     SUB 	Max             ; -= 1200
+0004: 3000; --     JNEG	Double          ; not over so not finished double
+0005: 4000; --     JZERO	Double          ; not over so not finished double
+0006: 080E; --     LOAD 	Curr            ; load current value
+0007: 200F; --     SUB		Fifty           ; -= 50
+0008: 100E; --     STORE 	Curr            ; cache result
+0009: 2011; --     SUB		Min             ; -= 1196
+000A: 3806; --     JPOS 	Subtract        ; not under so not finished sub
+000B: 4006; --     JZERO	Subtract        ; not under so not finished sub
+000C: 080E; --     LOAD 	Curr            ; load final result
+000D: 280D; -- 	JUMP 	Finish			; goto 27
+000E: 00A2; -- Curr:	DW	162
+000F: 0032; -- Fifty:	DW	50
+0010: 04B0; -- Max:	DW 	1200
+0011: 04AC; -- Min: 	DW 	1196
+[0012..07FF] : 0000; -- [empty memory]
+END;

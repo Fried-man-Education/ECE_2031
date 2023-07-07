@@ -1,6 +1,7 @@
 # do SCOMP_bare.do
+# ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:44:42 on Jul 06,2023
+# Start time: 17:37:52 on Jul 06,2023
 # vcom -work work SCOMP_bare.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -14,20 +15,20 @@
 # -- Loading package cyclonev_components
 # -- Compiling entity SCOMP
 # -- Compiling architecture structure of SCOMP
-# End time: 16:44:42 on Jul 06,2023, Elapsed time: 0:00:00
+# End time: 17:37:52 on Jul 06,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:44:42 on Jul 06,2023
+# Start time: 17:37:52 on Jul 06,2023
 # vcom -work work SCOMP_test.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity SCOMP_vhd_vec_tst
 # -- Compiling architecture SCOMP_arch of SCOMP_vhd_vec_tst
-# End time: 16:44:42 on Jul 06,2023, Elapsed time: 0:00:00
+# End time: 17:37:52 on Jul 06,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SCOMP_vhd_vec_tst 
-# Start time: 16:44:42 on Jul 06,2023
+# Start time: 17:37:52 on Jul 06,2023
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -54,6 +55,6 @@
 # Loading altera_lnsim.common_28nm_ram_pulse_generator
 # ** Warning: Design size of 99630 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
-# after#32
-# End time: 16:44:44 on Jul 06,2023, Elapsed time: 0:00:02
+# after#34
+# End time: 17:37:54 on Jul 06,2023, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1
