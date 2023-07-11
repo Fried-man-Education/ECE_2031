@@ -1,0 +1,75 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: B800; -- 	LOADI 0  				; Load immediate value 0 into the accumulator
+0001: 1040; -- 	STORE Initial  			; Store accumulator value in the Initial variable
+0002: 1041; -- 	STORE LEDDisp  			; Initialize LEDDisp to 0
+0003: 9801; -- 	OUT LEDs  				; Output accumulator value to LEDs
+0004: B800; -- 	LOADI 0  				; Load immediate value 0 into the accumulator
+0005: 103F; -- 	STORE Score  			; Initialize Score to 0
+0006: 9804; -- 	OUT Hex0  				; Output accumulator value to Hex0
+0007: B801; -- 	LOADI 1  				; Load immediate value 1 into the accumulator
+0008: 103E; -- 	STORE Round  			; Initialize Round to 1
+0009: 9805; -- 	OUT	Hex1  				; Output accumulator value to Hex1
+000A: 9000; -- 	IN Switches  			; Input from switches
+000B: 5040; -- 	OR Initial  			; Or the input value with Initial
+000C: 400E; -- 	JZERO Game  			; If the result is zero, jump to Game
+000D: 280A; -- 	JUMP SwitchHold  		; If not, continue polling SwitchHold
+000E: 0841; -- 	LOAD LEDDisp  			; Load LEDDisp into the accumulator
+000F: 9801; -- 	OUT LEDs  				; Output accumulator value to LEDs
+0010: 8028; -- 	Call Delay  			; Call the Delay subroutine
+0011: 9000; -- 	IN Switches  			; Input from switches
+0012: 4024; -- 	JZERO NextLED  			; If the input is zero, jump to NextLED
+0013: 0841; -- 	LOAD LEDDisp  			; Load LEDDisp into the accumulator
+0014: 802D; -- 	Call Count1s  			; Call the Count1s subroutine
+0015: 203E; -- 	SUB Round  				; Subtract Round from accumulator
+0016: 381B; -- 	JPOS Next  				; If the result is positive, jump to Next
+0017: 301B; -- 	JNEG Next  				; If the result is negative, jump to Next
+0018: 083F; -- 		LOAD Score  		; Load Score into the accumulator
+0019: 6801; -- 		ADDI 1  			; Increment the accumulator
+001A: 103F; -- 		STORE Score  		; Store accumulator value in the Score variable
+001B: 083E; -- 		LOAD Round  		; Load Round into the accumulator
+001C: 6801; -- 		ADDI 1  			; Increment the accumulator
+001D: 103E; -- 		STORE Round  		; Store accumulator value in the Round variable
+001E: 9805; -- 		OUT Hex1  			; Output accumulator value to Hex1
+001F: 083F; -- 		LOAD Score  		; Load Score into the accumulator
+0020: 9804; -- 		OUT Hex0  			; Output accumulator value to Hex0
+0021: 0840; -- 		LOAD Initial  		; Load Initial into the accumulator
+0022: 1041; -- 		STORE LEDDisp  		; Store accumulator value in the LEDDisp variable
+0023: 280A; -- 		JUMP SwitchHold  	; Jump back to SwitchHold
+0024: 0841; -- 	LOAD LEDDisp  			; Load LEDDisp into the accumulator
+0025: 6801; -- 	ADDI &B0000000001  		; Increment the accumulator
+0026: 1041; -- 	STORE LEDDisp  			; Store accumulator value in the LEDDisp variable
+0027: 280E; -- 	JUMP Game  				; Jump back to Game
+0028: 9802; -- 	OUT Timer
+0029: 9002; -- 	IN Timer
+002A: 6FF9; -- 	ADDI -7
+002B: 3029; -- 	JNEG WaitingLoop
+002C: 8800; -- 	RETURN
+002D: 103C; --   STORE  C1Val    ; Save AC for later
+002E: B800; --   LOADI  0        ; Reset count variable
+002F: 103D; --   STORE  C1Count
+0030: 083C; --   LOAD   C1Val 
+0031: 3039; --   JNEG   C1Ret    ; Return if MSb is 1
+0032: 483B; --   AND    C1One    ; Mask LSb
+0033: 183D; --   ADD    C1Count  ; Add to count
+0034: 103D; --   STORE  C1Count  ; Store new count
+0035: 083C; --   LOAD   C1Val 
+0036: 6011; --   SHIFT  -1       ; Shift to the right
+0037: 103C; --   STORE  C1Val 
+0038: 3832; --   JPOS   C1Loop   ; Loop until 0
+0039: 083D; --   LOAD   C1Count  ; The value to return
+003A: 8800; --   RETURN
+003B: 0001; -- C1One:   DW 1
+003C: 0000; -- C1Val:   DW 0
+003D: 0000; -- C1Count: DW 0
+003E: 0000; -- Round: DW 0
+003F: 0000; -- Score: DW 0
+0040: 0000; -- Initial: DW &B0000000000
+0041: 0000; -- LEDDisp: DW &B0000000000
+[0042..07FF] : 0000; -- [empty memory]
+END;
