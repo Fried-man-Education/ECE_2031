@@ -6,15 +6,15 @@
 
 ; init program
 ORG 0
-  LOADI 	13		; init value
-  CALL	Mul20		; AC *= 20
+  LOADI 13			; init value
+  CALL Mul20		; AC *= 20
   STORE Result1		; setup output first output
-  CALL 	Mul20		; AC *= 20
+  CALL Mul20		; AC *= 20
   STORE	Result2		; setup output first output
   
 ; end loop
 Finish:	
-	JUMP 	Finish  ; inf looper
+	JUMP Finish  	; inf looper
 	
 ; AC * 20 function
 Mul20:	
