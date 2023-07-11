@@ -15,7 +15,7 @@ ORG 0
 	
 Left:
 	; Slow down the loop so humans can watch it.
-;	CALL   Delay
+	CALL   Delay
 
 	; Check if the left place is 1 and if so, switch direction
     CALL   SwitchFlip	; check for channges in switches state
@@ -32,7 +32,7 @@ Left:
 	
 Right:
 	; Slow down the loop so humans can watch it.
-;	CALL   Delay
+	CALL   Delay
 
 	; Check if the right place is 1 and if so, switch direction
    	CALL   SwitchFlip   ; check for channges in switches state
