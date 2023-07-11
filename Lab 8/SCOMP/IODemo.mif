@@ -1,0 +1,50 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 9000; -- 	IN     Switches
+0001: 1026; --     STORE  PatternInit	; save initial switch values
+0002: 9801; -- 	OUT    LEDs
+0003: 1025; -- 	STORE  Pattern
+0004: 8018; -- 	CALL   Delay
+0005: 801D; --     CALL   SwitchFlip	; check for channges in switches state
+0006: 0825; -- 	LOAD   Pattern
+0007: 4828; -- 	AND    Bit9         ; bit mask
+0008: 380E; -- 	JPOS   Right        ; bit9 is 1; go right
+0009: 0825; -- 	LOAD   Pattern
+000A: 6001; -- 	SHIFT  1
+000B: 1025; -- 	STORE  Pattern
+000C: 9801; -- 	OUT    LEDs
+000D: 2804; -- 	JUMP   Left
+000E: 8018; -- 	CALL   Delay
+000F: 801D; --    	CALL   SwitchFlip   ; check for channges in switches state
+0010: 0825; -- 	LOAD   Pattern
+0011: 4827; -- 	AND    Bit0         ; bit mask
+0012: 3804; -- 	JPOS   Left         ; bit0 is 1; go left
+0013: 0825; -- 	LOAD   Pattern
+0014: 6011; -- 	SHIFT  -1
+0015: 1025; -- 	STORE  Pattern
+0016: 9801; -- 	OUT    LEDs
+0017: 280E; -- 	JUMP   Right
+0018: 9802; -- 	OUT    Timer
+0019: 9002; -- 	IN     Timer
+001A: 6FFB; -- 	ADDI   -5
+001B: 3019; -- 	JNEG   WaitingLoop
+001C: 8800; -- 	RETURN
+001D: 9000; -- 	IN     Switches		; Get current state of switches
+001E: 5826; -- 	XOR    PatternInit 	; Compare current and initial switch state
+001F: 4024; -- 	JZERO  Break 		; If 0, switch states are the same and break
+0020: 9000; --    	IN     Switches 	; read switches again
+0021: 1026; --    	STORE  PatternInit 	; initial state = new state (for later comparisons)
+0022: 1025; --    	STORE  Pattern 		; current LED pattern = new state
+0023: 9801; -- 	OUT    LEDs			; update LED state
+0024: 8800; -- Break: RETURN
+0025: 0000; -- Pattern:   DW 0
+0026: 0000; -- PatternInit:   DW &B0000000000
+0027: 0001; -- Bit0:      DW &B0000000001
+0028: 0200; -- Bit9:      DW &B1000000000
+[0029..07FF] : 0000; -- [empty memory]
+END;
