@@ -35,6 +35,6 @@ begin
   TIMER_EN     <= '1' WHEN (ADDR_INT = 16#002#) and (IO_CYCLE = '1') ELSE '0';
   HEX0_EN      <= '1' WHEN (ADDR_INT = 16#004#) and (IO_CYCLE = '1') ELSE '0';
   HEX1_EN      <= '1' WHEN (ADDR_INT = 16#005#) and (IO_CYCLE = '1') ELSE '0';
-  AUD_EN			<= '1' WHEN (ADDR_INT = 16#050#) and (IO_CYCLE = '1') ELSE '0';
+  AUD_EN       <= '1' WHEN (ADDR_INT = 16#050#) and (IO_CYCLE = '1') ELSE '0';
       
 END a;
