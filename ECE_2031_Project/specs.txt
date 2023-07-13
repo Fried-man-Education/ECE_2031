@@ -1,0 +1,7 @@
+method:
+	averaging absolute value
+
+ideas:
+	morse code -> ascii
+	dial-up modem decoding
+	background noise filtering
