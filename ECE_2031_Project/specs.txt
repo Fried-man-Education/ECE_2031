@@ -1,5 +1,0 @@
-method:
-	averaging absolute value over certain # of samples
-
-demo:
-	displaying lengths of noise on hex
