@@ -36,12 +36,13 @@ ORG 0
 	JUMP   0
 
 DetectedChange:
-    ; This subroutine is executed when a significant change in the sound level is detected
-    IN     Timer            ; Read the current timer value
-    SUB    StartTime        ; Subtract the start time from the current time to calculate the duration of the last sound range
-    STORE  LastSoundRange   ; Store this duration for future reference
-    LOAD   LastSoundRange   ; Load the calculated sound range duration into the accumulator
-    OUT    Hex1             ; Output this duration to Hex1
+    IN     Timer            		; Read the current system time value using the Timer input. This time corresponds to the moment the sound level change was detected.
+    STORE  DetectedSoundStartTime 	; Store the detected change start time in the DetectedSoundStartTime data word. This time will be used as a reference point to calculate the duration of the detected sound change.
+
+    ; Calculate the time since the detected sound and output to Hex1
+    IN     Timer            		; Read the current system time again. This time corresponds to the current moment in the execution of the program.
+    SUB    DetectedSoundStartTime 	; Subtract the DetectedSoundStartTime from the current time. The result of this operation is the duration (in cycles) since the detected sound change.
+    OUT    Hex1             		; Output this duration to Hex1. Hex1 will now display the number of cycles that have passed since the detected sound change.
 
     ; Return to the beginning
     JUMP   0
@@ -160,6 +161,7 @@ TempSum: DW 0
 One:       DW &B0000000001
 Zero:      DW &B0000000000
 LastSoundRange: DW 0
+DetectedSoundStartTime: DW 0
 
 ; IO address constants
 Switches:  EQU 000
