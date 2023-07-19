@@ -8,11 +8,18 @@ ORG 0
 	IN     Timer
 	STORE  StartTime
 	
-	; Check if the new input sound is much higher than the averaged Sound
-    LOAD   AverageSound     ; Load the average sound value into the accumulator
-    ADD    AverageSound     ; Double the average sound level by adding it to itself
-    COMP   LastSound        ; Compare the current sound level (LastSound) with twice the average
-    JPOS   DetectedChange   ; If the current sound level is greater, jump to DetectedChange
+	; Check if the new input sound is larger than twice the averaged Sound
+	LOAD   AverageSound     ; Load the average sound value into the accumulator
+	SHIFT  1                ; Double the average sound level by shifting bits to the left
+	SUB    LastSound        ; Subtract the last sound from the double of the average sound, placing the result in the accumulator
+	JNEG   DetectedChange   ; If the result is negative (indicating that the last sound is larger than twice the average sound), jump to DetectedChange
+
+
+; Check if the new input sound is smaller than half of the averaged Sound
+    LOAD   AverageSound     ; Load the average sound value into the accumulator again
+    SHIFT  -1               ; Halve the average sound level
+    SUB    LastSound        ; Subtract the last sound from half of the average sound, placing the result in the accumulator
+    JPOS   DetectedChange   ; If the result is positive (indicating that the last sound is smaller than half of the average sound), jump to DetectedChange
 
     LOAD   InputCount       ; Load the count of sound level data points
     CALL   CalculateAverage ; Call the subroutine to calculate the new average sound level
