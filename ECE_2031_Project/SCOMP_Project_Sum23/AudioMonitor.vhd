@@ -26,16 +26,18 @@ end AudioMonitor;
 architecture a of AudioMonitor is
 
 	 type state_type is ( filling, full );
-	 type sample_type is array (0 to 15) of std_logic_vector(15 downto 0); -- (sample size tbd)
+	 type sample_type is array (0 to 29999999) of std_logic_vector(15 downto 0);
 
     signal out_en       : std_logic;
     signal output_data  : std_logic_vector(15 downto 0);
 	 
-	 signal average	   : natural range 0 to integer'high;
-	 signal next_index 	: natural range 0 to 15;	 							  -- (sample size tbd)
-	 signal last_index	: natural range 0 to 15;								  -- (sample size tbd)
+	 signal average	   : natural range 0 to integer'high := 0;
+	 signal next_index 	: natural range 0 to 29999999 := 0;
+	 signal last_index	: natural range 0 to 29999999;
+	 signal divisor		: integer := 30000000;
+	 signal removed		: integer;
 	 signal sample 	   : sample_type;
-	 signal state		   : state_type;
+	 signal state		   : state_type := filling;
 
 begin
 
@@ -58,30 +60,42 @@ begin
     begin
         if (RESETN = '0') then
 		  
-				-- initialize index to add data at
+				-- reset values
 				next_index <= 0;
 				state <= filling;
+				divisor <= 30000000;
 				
         elsif (rising_edge(AUD_NEW)) then
 		  
 				case state is				
-					when filling =>									-- FILLING - average to point of filling
-						if (next_index = 0) then					-- (sample size tbd)
-							state <= full;								-- indicate full if array is maxed
-							last_index <= 14;							-- specify the last index if the next is 0
-						else
-							last_index <= next_index - 1;			-- specify the last index
-						end if;
-						for i in 0 to 15 loop						-- loop over all size (tbd)
-							if i <= last_index then					-- only add if i < size
-								average <= average + to_integer(unsigned(sample(i)));
-							end if;
-						end loop;
-						average <= average / (last_index + 1);	-- average of size to what has been filled
+					when filling =>																					-- FILLING - average to point of filling
 						
-					when full =>										-- FULL - average entire array
-						average <= average / 15;
+						sample(next_index) <= AUD_DATA;															-- add data
+						next_index <= (next_index + 1) mod divisor;											-- move next_index marker
+						
+						if (next_index = 0) then
+							state <= full;																				-- indicate full if array is maxed
+							last_index <= divisor - 1;																-- specify the last index if the next is 0
+						else
+							last_index <= next_index - 1;															-- specify the last index
+						end if;
+						
+						average <= average * (last_index);														-- get the sum
+						average <= average + abs to_integer(signed(sample(next_index)));				-- add newest data
+						average <= average / (last_index + 1);													-- average
+						
+					
+					when full =>																						-- FULL - average entire array
+						
+						removed <= abs to_integer(signed(sample(next_index)));							-- keep removed data for later
+						sample(next_index) <= AUD_DATA;															-- replace data
+						next_index <= (next_index + 1) mod divisor;											-- move next_index marker
+						
+						average <= average * divisor;
+						average <= average - removed + abs to_integer(signed(sample(next_index)));	-- correct the sum
+						average <= average / divisor;
 				end case;
+				
         end if;
     end process;
 
