@@ -68,28 +68,28 @@ begin
         elsif (rising_edge(AUD_NEW)) then
 		  
 				case state is				
-					when filling =>																					-- FILLING - average to point of filling
-						
-						sample(next_index) <= AUD_DATA;															-- add data
-						next_index <= (next_index + 1) mod divisor;											-- move next_index marker
+					when filling =>																	-- FILLING - average to point of filling
+
+						sample(next_index) <= AUD_DATA;												-- add data
+						next_index <= (next_index + 1) mod divisor;									-- move next_index marker
 						
 						if (next_index = 0) then
-							state <= full;																				-- indicate full if array is maxed
-							last_index <= divisor - 1;																-- specify the last index if the next is 0
+							state <= full;															-- indicate full if array is maxed
+							last_index <= divisor - 1;												-- specify the last index if the next is 0
 						else
-							last_index <= next_index - 1;															-- specify the last index
+							last_index <= next_index - 1;											-- specify the last index
 						end if;
 						
-						average <= average * (last_index);														-- get the sum
-						average <= average + abs to_integer(signed(sample(next_index)));				-- add newest data
-						average <= average / (last_index + 1);													-- average
+						average <= average * (last_index);											-- get the sum
+						average <= average + abs to_integer(signed(sample(next_index)));			-- add newest data
+						average <= average / (last_index + 1);										-- average
 						
 					
-					when full =>																						-- FULL - average entire array
+					when full =>																	-- FULL - average entire array
 						
-						removed <= abs to_integer(signed(sample(next_index)));							-- keep removed data for later
-						sample(next_index) <= AUD_DATA;															-- replace data
-						next_index <= (next_index + 1) mod divisor;											-- move next_index marker
+						removed <= abs to_integer(signed(sample(next_index)));						-- keep removed data for later
+						sample(next_index) <= AUD_DATA;												-- replace data
+						next_index <= (next_index + 1) mod divisor;									-- move next_index marker
 						
 						average <= average * divisor;
 						average <= average - removed + abs to_integer(signed(sample(next_index)));	-- correct the sum
