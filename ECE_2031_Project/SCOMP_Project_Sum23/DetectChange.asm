@@ -15,7 +15,7 @@ ORG 0
 	JNEG   DetectedChange   ; If the result is negative (indicating that the last sound is larger than twice the average sound), jump to DetectedChange
 
 
-; Check if the new input sound is smaller than half of the averaged Sound
+	; Check if the new input sound is smaller than half of the averaged Sound
     LOAD   AverageSound     ; Load the average sound value into the accumulator again
     SHIFT  -1               ; Halve the average sound level
     SUB    LastSound        ; Subtract the last sound from half of the average sound, placing the result in the accumulator
