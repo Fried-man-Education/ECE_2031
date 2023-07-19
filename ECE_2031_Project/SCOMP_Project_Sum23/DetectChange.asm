@@ -8,13 +8,16 @@ ORG 0
 	IN     Timer
 	STORE  StartTime
 	
-	; Here we can check if the new input sound is much higher than the averaged Sound
+	; Check if the new input sound is much higher than the averaged Sound
+    LOAD   AverageSound     ; Load the average sound value into the accumulator
+    ADD    AverageSound     ; Double the average sound level by adding it to itself
+    COMP   LastSound        ; Compare the current sound level (LastSound) with twice the average
+    JPOS   DetectedChange   ; If the current sound level is greater, jump to DetectedChange
+
+    LOAD   InputCount       ; Load the count of sound level data points
+    CALL   CalculateAverage ; Call the subroutine to calculate the new average sound level
 	
-	
-	LOAD InputCount        ; Input Count of the number of sound level data points to calculate the average
-	CALL CalculateAverage  ; Subroutine to calculate average 
-	
-	; Display value on Hex 0
+	; Display the average sound value on Hex 0
 	; CALL Delay
 	LOAD   AverageSound
 	OUT    Hex0            ; Displays the average
@@ -24,6 +27,17 @@ ORG 0
     ;OUT    LEDs
 	; Do it again
 	JUMP   0
+
+DetectedChange:
+    ; This subroutine is executed when a significant change in the sound level is detected
+    IN     Timer            ; Read the current timer value
+    SUB    StartTime        ; Subtract the start time from the current time to calculate the duration of the last sound range
+    STORE  LastSoundRange   ; Store this duration for future reference
+    LOAD   LastSoundRange   ; Load the calculated sound range duration into the accumulator
+    OUT    Hex1             ; Output this duration to Hex1
+
+    ; Return to the beginning
+    JUMP   0
 
 CalculateAverage:
 	LOAD  Total			    ; Load the current total
@@ -138,6 +152,7 @@ Total: DW 0
 TempSum: DW 0
 One:       DW &B0000000001
 Zero:      DW &B0000000000
+LastSoundRange: DW 0
 
 ; IO address constants
 Switches:  EQU 000
