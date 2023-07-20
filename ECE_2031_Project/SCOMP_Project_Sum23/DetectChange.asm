@@ -3,7 +3,7 @@
 
 ORG 0
 	; Get data from the audio peripheral
-	IN     Sound
+	IN     Switches
 	STORE  LastSound
 	IN     Timer
 	STORE  StartTime
@@ -24,7 +24,7 @@ ORG 0
 	; If not lower than half or greater than double, sound is in range and the out of range sound has ended
 	LOADI 0							; current sound 
 	STORE DetectedSoundStartTime	; reset detected sound start variable
-
+	
 RegularDisplay:
     LOAD   InputCount       ; Load the count of sound level data points
     CALL   CalculateAverage ; Call the subroutine to calculate the new average sound level
@@ -50,7 +50,7 @@ DisplayDuration:
     ; Calculate the time since the detected sound and output to Hex1
     IN     Timer            		; Read the current system time again. This time corresponds to the current moment in the execution of the program.
     SUB    DetectedSoundStartTime 	; Subtract the DetectedSoundStartTime from the current time. The result of this operation is the duration (in cycles) since the detected sound change.
-    OUT    Hex1             		; Output this duration to Hex1. Hex1 will now display the number of cycles that have passed since the detected sound change.
+    OUT    Hex1		         		; Output this duration to Hex1. Hex1 will now display the number of cycles that have passed since the detected sound change.
 
     ; Return to the where we left off in main function
     JUMP   RegularDisplay
@@ -89,6 +89,7 @@ CalculateTotal:
 	JPOS  CalculateTotal	
 	LOAD  Total				; now Total has previous AverageSound * inputCount
 	ADD   LastSound			; add the new sound level to total for averaging
+	ADD   Difference
 	STORE Total				; Total stores the sum of all the input sound levels
 	RETURN
 
@@ -124,6 +125,7 @@ FindTrueAverage:
 	JPOS FindTrueAverage
 	LOAD Total				; Total - TempSum to see if inputCount * AverageSound is smaller than total
 	SUB TempSum				; If Total - TempSum is greater than 0, AverageSound is valid, code returns
+	STORE Difference
 	JNEG DecrementAverageSound	; if not, decrement the AverageSound to find the true value
 	RETURN
 DecrementAverageSound:
@@ -166,6 +168,7 @@ Temp: DW 0
 LargestBit: DW 0
 Total: DW 0
 TempSum: DW 0
+Difference: DW 0
 One:       DW &B0000000001
 Zero:      DW &B0000000000
 LastSoundRange: DW 0
