@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'AUD_NEW'
+Slack : -69.204
+TNS   : -1944.345
+
+Type  : Slow 1100mV 85C Model Setup 'CS'
+Slack : -1.611
+TNS   : -23.438
+
+Type  : Slow 1100mV 85C Model Hold 'AUD_NEW'
+Slack : 0.373
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CS'
+Slack : 0.568
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'AUD_NEW'
+Slack : -0.394
+TNS   : -57.464
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CS'
+Slack : -0.394
+TNS   : -10.271
+
+Type  : Slow 1100mV 0C Model Setup 'AUD_NEW'
+Slack : -71.193
+TNS   : -1985.907
+
+Type  : Slow 1100mV 0C Model Setup 'CS'
+Slack : -1.538
+TNS   : -22.134
+
+Type  : Slow 1100mV 0C Model Hold 'AUD_NEW'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CS'
+Slack : 0.456
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'AUD_NEW'
+Slack : -0.394
+TNS   : -52.270
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CS'
+Slack : -0.394
+TNS   : -9.314
+
+Type  : Fast 1100mV 85C Model Setup 'AUD_NEW'
+Slack : -37.457
+TNS   : -1065.518
+
+Type  : Fast 1100mV 85C Model Setup 'CS'
+Slack : -0.656
+TNS   : -9.062
+
+Type  : Fast 1100mV 85C Model Hold 'AUD_NEW'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CS'
+Slack : 0.277
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'AUD_NEW'
+Slack : -0.393
+TNS   : -37.043
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CS'
+Slack : -0.391
+TNS   : -7.224
+
+Type  : Fast 1100mV 0C Model Setup 'AUD_NEW'
+Slack : -35.481
+TNS   : -995.951
+
+Type  : Fast 1100mV 0C Model Setup 'CS'
+Slack : -0.501
+TNS   : -6.742
+
+Type  : Fast 1100mV 0C Model Hold 'CS'
+Slack : 0.162
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'AUD_NEW'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CS'
+Slack : -0.432
+TNS   : -8.858
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'AUD_NEW'
+Slack : -0.431
+TNS   : -45.094
+
+------------------------------------------------------------

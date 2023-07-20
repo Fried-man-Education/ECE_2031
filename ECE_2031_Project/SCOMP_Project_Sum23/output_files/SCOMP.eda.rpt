@@ -1,0 +1,80 @@
+EDA Netlist Writer report for SCOMP
+Thu Jul 20 17:04:29 2023
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. EDA Netlist Writer Summary
+  3. EDA Netlist Writer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------+
+; EDA Netlist Writer Summary                                    ;
++---------------------------+-----------------------------------+
+; EDA Netlist Writer Status ; Failed - Thu Jul 20 17:04:29 2023 ;
+; Revision Name             ; SCOMP                             ;
+; Top-level Entity Name     ; AudioMonitor                      ;
+; Family                    ; Cyclone V                         ;
++---------------------------+-----------------------------------+
+
+
++-----------------------------+
+; EDA Netlist Writer Messages ;
++-----------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Copyright (C) 2019  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Thu Jul 20 17:04:28 2023
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SCOMP -c SCOMP --vector_source=C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/output_files/test_peripheral.vwf --testbench_file=C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/simulation/qsim/output_files/test_peripheral.vwf.vht
+Warning (20013): Ignored 16 assignments for entity "PLL_main" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 19.1 -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
+Warning (20013): Ignored 461 assignments for entity "PLL_main_0002" -- entity does not exist in design
+Info (119006): Selected device 5CSXFC6D6F31C6 for design "SCOMP"
+Error (199013): HDL output file name "C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/simulation/qsim/output_files/test_peripheral.vwf.vht" used with --testbench_file option contains a non-existent directory path
+Error: Quartus Prime EDA Netlist Writer was unsuccessful. 1 error, 5 warnings
+    Error: Peak virtual memory: 4728 megabytes
+    Error: Processing ended: Thu Jul 20 17:04:29 2023
+    Error: Elapsed time: 00:00:01
+    Error: Total CPU time (on all processors): 00:00:01
+
+
