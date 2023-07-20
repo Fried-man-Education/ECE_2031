@@ -1,4 +1,4 @@
-; AudioTest.asm
+; DetectChange.asm
 ; Displays the value from the audio peripheral
 
 ORG 0
