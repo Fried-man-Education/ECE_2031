@@ -21,6 +21,11 @@ ORG 0
     SUB    LastSound        ; Subtract the last sound from half of the average sound, placing the result in the accumulator
     JPOS   DetectedChange   ; If the result is positive (indicating that the last sound is smaller than half of the average sound), jump to DetectedChange
 
+	; If not lower than half or greater than double, sound is in range and the out of range sound has ended
+	LOADI 0							; current sound 
+	STORE DetectedSoundStartTime	; reset detected sound start variable
+
+RegularDisplay:
     LOAD   InputCount       ; Load the count of sound level data points
     CALL   CalculateAverage ; Call the subroutine to calculate the new average sound level
 	
@@ -36,16 +41,19 @@ ORG 0
 	JUMP   0
 
 DetectedChange:
+	LOAD DetectedSoundStartTime 	; Put detected sound start variable in AC
+	JPOS DisplayDuration			; If out of range sound has been recorded before, go to display so you dont update the sound start variable again
     IN     Timer            		; Read the current system time value using the Timer input. This time corresponds to the moment the sound level change was detected.
     STORE  DetectedSoundStartTime 	; Store the detected change start time in the DetectedSoundStartTime data word. This time will be used as a reference point to calculate the duration of the detected sound change.
 
+DisplayDuration:
     ; Calculate the time since the detected sound and output to Hex1
     IN     Timer            		; Read the current system time again. This time corresponds to the current moment in the execution of the program.
     SUB    DetectedSoundStartTime 	; Subtract the DetectedSoundStartTime from the current time. The result of this operation is the duration (in cycles) since the detected sound change.
     OUT    Hex1             		; Output this duration to Hex1. Hex1 will now display the number of cycles that have passed since the detected sound change.
 
-    ; Return to the beginning
-    JUMP   0
+    ; Return to the where we left off in main function
+    JUMP   RegularDisplay
 
 CalculateAverage:
 	LOAD  Total			    ; Load the current total
