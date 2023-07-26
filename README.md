@@ -61,6 +61,8 @@ robot, or contest)
 - Project engineering issues: top-down vs. bottom-up design, hierarchical decomposition,
 and modularity
 ## Table of Contents
+### Project
+The end of course group project can be found [here](/Project).
 ### Labs
 - Lab 0 - [Quartus Prime Lite Edition Installation](/Lab%200)
 - Lab 1 - [Introduction to Digital Logic Design](/Lab%201)
