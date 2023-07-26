@@ -1,0 +1,129 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 9000; -- 	IN     Switches
+0001: 106C; -- 	STORE  LastSound
+0002: 9002; -- 	IN     Timer
+0003: 106A; -- 	STORE  StartTime
+0004: 086D; -- 	LOAD   AverageSound     ; Load the average sound value into the accumulator
+0005: 6001; -- 	SHIFT  1                ; Double the average sound level by shifting bits to the left
+0006: 206C; -- 	SUB    LastSound        ; Subtract the last sound from the double of the average sound, placing the result in the accumulator
+0007: 3013; -- 	JNEG   DetectedChange   ; If the result is negative (indicating that the last sound is larger than twice the average sound), jump to DetectedChange
+0008: 086D; --     LOAD   AverageSound     ; Load the average sound value into the accumulator again
+0009: 6011; --     SHIFT  -1               ; Halve the average sound level
+000A: 206C; --     SUB    LastSound        ; Subtract the last sound from half of the average sound, placing the result in the accumulator
+000B: 3813; --     JPOS   DetectedChange   ; If the result is positive (indicating that the last sound is smaller than half of the average sound), jump to DetectedChange
+000C: B800; -- 	LOADI 0							; current sound 
+000D: 1077; -- 	STORE DetectedSoundStartTime	; reset detected sound start variable
+000E: 086E; --     LOAD   InputCount       ; Load the count of sound level data points
+000F: 801B; --     CALL   CalculateAverage ; Call the subroutine to calculate the new average sound level
+0010: 086D; -- 	LOAD   AverageSound
+0011: 9804; -- 	OUT    Hex0            ; Displays the average
+0012: 2800; -- 	JUMP   0
+0013: 0877; -- 	LOAD DetectedSoundStartTime 	; Put detected sound start variable in AC
+0014: 3817; -- 	JPOS DisplayDuration			; If out of range sound has been recorded before, go to display so you dont update the sound start variable again
+0015: 9002; --     IN     Timer            		; Read the current system time value using the Timer input. This time corresponds to the moment the sound level change was detected.
+0016: 1077; --     STORE  DetectedSoundStartTime 	; Store the detected change start time in the DetectedSoundStartTime data word. This time will be used as a reference point to calculate the duration of the detected sound change.
+0017: 9002; --     IN     Timer            		; Read the current system time again. This time corresponds to the current moment in the execution of the program.
+0018: 2077; --     SUB    DetectedSoundStartTime 	; Subtract the DetectedSoundStartTime from the current time. The result of this operation is the duration (in cycles) since the detected sound change.
+0019: 9805; --     OUT    Hex1		         		; Output this duration to Hex1. Hex1 will now display the number of cycles that have passed since the detected sound change.
+001A: 280E; --     JUMP   RegularDisplay
+001B: 0871; -- 	LOAD  Total			    ; Load the current total
+001C: 4875; -- 	AND   Zero			    ; Set the total to zero
+001D: 1071; --     STORE Total
+001E: 086E; --     LOAD InputCount
+001F: 106F; -- 	STORE Temp				; Temp variable stores the number of sound inputs
+0020: 802F; -- 	CALL CalculateTotal		; Call the subroutine to calculate the sum of all the previous sound values
+0021: 086E; -- 	LOAD InputCount			; Increment input count for averaging
+0022: 1874; -- 	ADD  One
+0023: 106E; -- 	STORE InputCount
+0024: 106F; -- 	STORE Temp				; Temp variable stores the new number of sound inputs
+0025: 0871; --     LOAD Total
+0026: 106D; --     STORE AverageSound		; Store the current total in averageSound, so that in the FindLargestBit subroutine, we can change the AverageSound directly
+0027: 803B; -- 	CALL FindLargestBit		; Now AverageSound stores a start point to estimate the true average value
+0028: 086E; -- 	LOAD InputCount			
+0029: 106F; -- 	STORE Temp				
+002A: 804A; -- 	CALL FindTrueAverage	; Call FindTrueAverage subroutine to find the true average with a start point stored in Average Sound and input count stored in temp
+002B: 0872; -- 	LOAD TempSum			; After calling the subroutine, reset tempsum to 0 for future use
+002C: 4875; -- 	AND Zero
+002D: 1072; -- 	STORE TempSum
+002E: 8800; -- 	RETURN
+002F: 0871; -- 	LOAD  Total
+0030: 186D; -- 	ADD   AverageSound  	; Add averageSound until input count goes to 0
+0031: 1071; -- 	STORE Total
+0032: 086F; -- 	LOAD  Temp
+0033: 2074; -- 	SUB   One				; decrement input count until 0
+0034: 106F; --     STORE Temp
+0035: 382F; -- 	JPOS  CalculateTotal	
+0036: 0871; -- 	LOAD  Total				; now Total has previous AverageSound * inputCount
+0037: 186C; -- 	ADD   LastSound			; add the new sound level to total for averaging
+0038: 1873; -- 	ADD   Difference
+0039: 1071; -- 	STORE Total				; Total stores the sum of all the input sound levels
+003A: 8800; -- 	RETURN
+003B: 086F; -- 	LOAD Temp
+003C: 2074; -- 	SUB One
+003D: 4047; -- 	JZERO DividerIsOne		; If input count is 1, no need to change the averageSound
+003E: 086D; -- 	LOAD AverageSound		
+003F: 6011; -- 	SHIFT -1				; Or shift AverageSound by 1 to divide by two, because the input count is greater than 1, which means at least 2
+0040: 106D; -- 	STORE AverageSound		; Store this value to AverageSound
+0041: 086F; -- 	LOAD Temp				; Load input count
+0042: 6011; -- 	SHIFT -1				; Shift right by 1 bit
+0043: 106F; -- 	STORE Temp
+0044: 2074; -- 	SUB One					; subtract 1 to see if this bit is the last bit that is 1
+0045: 383B; -- 	JPOS FindLargestBit		; If there are more bits in input count that is 1, loop back and find the largest bit
+0046: 8800; -- 	RETURN
+0047: 0871; -- 	LOAD Total
+0048: 106D; -- 	STORE AverageSound
+0049: 8800; -- 	RETURN
+004A: 0872; -- 	LOAD TempSum			; TempSum is used to check if the current AverageSound is floor of total/input count
+004B: 186D; -- 	ADD AverageSound		; Add AverageSound to Tempsum until input count goes to 0, same as inputCount * AverageSound
+004C: 1072; -- 	STORE TempSum
+004D: 086F; -- 	LOAD Temp
+004E: 2074; -- 	SUB One
+004F: 106F; -- 	STORE Temp
+0050: 384A; -- 	JPOS FindTrueAverage
+0051: 0871; -- 	LOAD Total				; Total - TempSum to see if inputCount * AverageSound is smaller than total
+0052: 2072; -- 	SUB TempSum				; If Total - TempSum is greater than 0, AverageSound is valid, code returns
+0053: 1073; -- 	STORE Difference
+0054: 3056; -- 	JNEG DecrementAverageSound	; if not, decrement the AverageSound to find the true value
+0055: 8800; -- 	RETURN
+0056: 086D; -- 	LOAD AverageSound		
+0057: 2074; -- 	SUB One					; decrement AverageSound
+0058: 106D; -- 	STORE AverageSound
+0059: 0872; -- 	LOAD TempSum
+005A: 4875; -- 	AND Zero
+005B: 1072; -- 	STORE TempSum
+005C: 086E; --     LOAD InputCount
+005D: 106F; -- 	STORE Temp
+005E: 284A; -- 	JUMP FindTrueAverage	; Use the subroutine above to check if this new averageSound is good, if not, it will come back into this method
+005F: 9802; -- 	OUT    Timer
+0060: 9002; -- 	IN     Timer
+0061: 6FFF; -- 	ADDI   -1
+0062: 3060; -- 	JNEG   WaitingLoop
+0063: 8800; -- 	RETURN
+0064: 3066; -- 	JNEG   Negate
+0065: 8800; --     RETURN ; positive or zero; just return
+0066: 106B; -- 	STORE  NegTemp
+0067: 206B; --     SUB    NegTemp
+0068: 206B; --     SUB    NegTemp
+0069: 8800; -- 	RETURN
+006A: 0000; -- StartTime: DW 0
+006B: 0000; -- NegTemp: DW 0
+006C: 0000; -- LastSound: DW 0
+006D: 0000; -- AverageSound: DW 0
+006E: 0000; -- InputCount: DW 0
+006F: 0000; -- Temp: DW 0
+0070: 0000; -- LargestBit: DW 0
+0071: 0000; -- Total: DW 0
+0072: 0000; -- TempSum: DW 0
+0073: 0000; -- Difference: DW 0
+0074: 0001; -- One:       DW &B0000000001
+0075: 0000; -- Zero:      DW &B0000000000
+0076: 0000; -- LastSoundRange: DW 0
+0077: 0000; -- DetectedSoundStartTime: DW 0
+[0078..07FF] : 0000; -- [empty memory]
+END;
