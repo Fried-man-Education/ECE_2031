@@ -19,32 +19,35 @@ port(
     RESETN      : in  std_logic;
     AUD_DATA    : in  std_logic_vector(15 downto 0);
     AUD_NEW     : in  std_logic;
-    IO_DATA     : inout  std_logic_vector(15 downto 0)
+    IO_DATA     : inout  std_logic_vector(15 downto 0);
+	 AVERAGE_S   :	out std_logic_vector(15 downto 0);
+	 window_sum1	:out std_logic_vector(31 downto 0);
+	 window_sum2	:out std_logic_vector(31 downto 0)
+	 
 );
 end AudioMonitor;
 
 architecture a of AudioMonitor is
 
-	 type state_type is ( filling, full );
-	 type sample_type is array (0 to 29999999) of std_logic_vector(15 downto 0);
-
+    signal parsed_data 	: signed(15 downto 0); --data from audio monitor 16 bit signed audio data
     signal out_en       : std_logic;
     signal output_data  : std_logic_vector(15 downto 0);
-	 
-	 signal average	   : natural range 0 to integer'high := 0;
-	 signal next_index 	: natural range 0 to 29999999 := 0;
-	 signal last_index	: natural range 0 to 29999999;
-	 signal divisor		: integer := 30000000;
-	 signal removed		: integer;
-	 signal sample 	   : sample_type;
-	 signal state		   : state_type := filling;
+	 signal average	   : signed(15 downto 0) := (others => '0');
+	 signal average_temp : signed(31 downto 0);
+	 signal window_sum 	: signed(31 downto 0) := (others => '0');
+	 signal next_sum 		: signed(31 downto 0) := (others => '0');
+	 signal next_index 	: natural range 0 to 11999999 := 0;
+	 signal count 			: natural range 0 to 11999999 := 0;
+	 signal previou 		: natural range 0 to 11999999 := 0;
+	 signal divisor		: integer := 12000000;
+	 signal max				: natural range 0 to 12000000 := 0;
 
 begin
 
     -- Latch data on rising edge of CS to keep it stable during IN
     process (CS) begin
         if rising_edge(CS) then
-            output_data <= std_logic_vector(to_unsigned(average, 16));
+            output_data <= std_logic_vector(average);
         end if;
     end process;
     -- Drive IO_DATA when needed.
@@ -56,47 +59,35 @@ begin
     -- This template device just copies the input data
     -- to IO_DATA by latching the data every time a new
     -- value is ready.
-    process (RESETN, SYS_CLK)
+    process (RESETN, AUD_NEW)
     begin
         if (RESETN = '0') then
 		  
 				-- reset values
-				next_index <= 0;
-				state <= filling;
-				divisor <= 30000000;
+				parsed_data <= x"0000";
+				window_sum <= (others => '0');
+				average <= (others => '0');
 				
+			
         elsif (rising_edge(AUD_NEW)) then
-		  
-				case state is				
-					when filling =>																		-- FILLING - average to point of filling
-
-						sample(next_index) <= AUD_DATA;												-- add data
-						next_index <= (next_index + 1) mod divisor;								-- move next_index marker
-						
-						if (next_index = 0) then
-							state <= full;																	-- indicate full if array is maxed
-							last_index <= divisor - 1;													-- specify the last index if the next is 0
-						else
-							last_index <= next_index - 1;												-- specify the last index
-						end if;
-						
-						average <= average * (last_index);											-- get the sum
-						average <= average + abs to_integer(signed(sample(next_index)));			-- add newest data
-						average <= average / (last_index + 1);										-- average
-						
-					
-					when full =>																						-- FULL - average entire array
-						
-						removed <= abs to_integer(signed(sample(next_index)));							-- keep removed data for later
-						sample(next_index) <= AUD_DATA;															-- replace data
-						next_index <= (next_index + 1) mod divisor;											-- move next_index marker
-						
-						average <= average * divisor;
-						average <= average - removed + abs to_integer(signed(sample(next_index)));	-- correct the sum
-						average <= average / divisor;
-				end case;
+				parsed_data <= signed(AUD_DATA);
 				
-        end if;
+				if (count < 12000000) then
+					window_sum <= window_sum + abs(parsed_data);
+					window_sum1 <= std_logic_vector(window_sum);
+					count <= count + 1;
+					max <= count;
+					average_temp <= window_sum / to_signed(max, window_sum'length);
+					average <= resize(average_temp, average'length);
+					
+				else
+					
+					average <= abs(parsed_data) + ((average - abs(parsed_data)) / to_signed(max, window_sum'length));
+				end if;
+				
+																
+				
+       end if; 
     end process;
 
 end a;
